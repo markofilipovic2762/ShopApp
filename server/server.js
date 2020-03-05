@@ -34,7 +34,7 @@ const {admin} = require('./middleware/admin');
 // BY SELL
 // articles?sortBy=SOLD&order=desc&limit=4
 app.get('/api/product/articles',(req,res)=>{
-    let order = req.query.order ? req.query.order : 'asc';
+    let order = req.query.order ? req.query.order : 'desc'; //vrati na asc, isprobavao sam nesto
     let sortBy = req.query.sortBy ? req.query.sortBy : '_id';
     let limit = req.query.limit ? parseInt(req.query.limit) : 100;
 
