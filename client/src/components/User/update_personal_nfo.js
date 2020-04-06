@@ -77,7 +77,7 @@ class UpdatePersonalNfo extends Component {
 
         if (formIsValid) {
             this.props.dispatch(updateUserData(dataToSubmit)).then(()=>{
-                if(this.props.user.updateUser.success){
+                if(this.props.user.updateUser.success) {
                     this.setState({
                         formSuccess: true
                     }), () => {

@@ -4,9 +4,9 @@ import UpdateSiteNfo from './update_site_nfo';
 
 const ManageSite = () => {
     return (
-        <div>
+        <UserLayout>
             <UpdateSiteNfo />
-        </div>
+        </UserLayout>       
     );
 };
 

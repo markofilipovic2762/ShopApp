@@ -127,6 +127,6 @@ export function updateUserData(dataToSubmit) {
 export function clearUpdateUser() {
     return {
         type: CLEAR_UPDATE_USER_DATA,
-        payload: request
+        payload: ''
     }
 }
