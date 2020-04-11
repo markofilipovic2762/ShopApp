@@ -24,7 +24,7 @@ const Footer = ({data}) => {
                                 />
                                 <div className="nfo">
                                     <div>Adress</div>
-                                    <div> {data.siteData[0].adress} </div>
+                                    <div> {data.siteData[0].address} </div>
                                 </div>
                             </div>
                             <div className="tag">

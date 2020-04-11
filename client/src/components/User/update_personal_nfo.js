@@ -62,7 +62,7 @@ class UpdatePersonalNfo extends Component {
     }
 
     updateForm = (element) => {
-        const newFormdata = update(element, this.state.formData, 'register');
+        const newFormdata = update(element, this.state.formData, 'update_user');
         this.setState({
             formError: false,
             formData: newFormdata
@@ -80,14 +80,14 @@ class UpdatePersonalNfo extends Component {
                 if(this.props.user.updateUser.success) {
                     this.setState({
                         formSuccess: true
-                    }), () => {
+                    },() => {
                         setTimeout(() => {
                             this.props.dispatch(clearUpdateUser());
                             this.setState({
                                 formSuccess: false
                             })
                         }, 2000);
-                    }
+                    }) 
                 }
             })
         } else {

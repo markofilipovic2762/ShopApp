@@ -20,7 +20,7 @@ export function updateSiteData(dataToSubmit) {
     const request = axios.post(`${SITE_SERVER}/site_data`, dataToSubmit)
         .then(response => response.data);
     return {
-        type: GET_SITE_DATA,
+        type: UPDATE_SITE_DATA,
         payload: request
     }
 }

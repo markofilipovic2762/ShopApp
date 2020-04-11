@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const formidable = require('express-formidable');
 const cloudinary = require('cloudinary');
+const mailer = require('nodemailer');
 
 const app = express();
 const mongoose = require('mongoose');
@@ -37,6 +38,34 @@ const { Site } = require('./models/site');
 //   MIDDLEWARES    //
 const { auth } = require('./middleware/auth');
 const { admin } = require('./middleware/admin');
+
+// U T I L S
+const { sendEmail } = require('./utils/mail/index');
+
+// const smtpTransport = mailer.createTransport({
+//     service: "Gmail",
+//     auth: {
+//         user:"markofilipovicsd@gmail.com",
+//         pass: "milicija996"
+//     }
+// });
+
+// var mail = {
+//     from: "ShopApp <markofilipovicsd@gmail.com",
+//     to: "simeonfilipovic@gmail.com",
+//     subject: "Send test email",
+//     text: "Testing our app mails",
+//     html: "<b> Ovo radiii </b>"
+// }
+
+// smtpTransport.sendMail(mail,(err,res)=> {
+//     if (err) {
+//         console.log(err);
+//     } else {
+//         console.log('email sent');
+//     }
+//     smtpTransport.close();
+// })
 
 //  P   R   O   D   U   C   T   S   //
 app.post('/api/product/shop', (req, res) => {
@@ -195,6 +224,7 @@ app.post('/api/users/register', (req, res) => {
 
     user.save((err, doc) => {
         if (err) return res.json({ success: false, err });
+        sendEmail(doc.email,doc.name,null,"welcome")
         res.status(200).json({
             success: true,
             //userdata: doc

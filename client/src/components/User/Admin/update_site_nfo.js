@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import FormField from '../utils/Form/FormField';
+import FormField from '../../utils/Form/FormField';
 import { connect } from 'react-redux';
 import { getSiteData, updateSiteData } from '../../../actions/site_actions';
 
@@ -49,8 +49,8 @@ class UpdateSiteNfo extends Component {
                 element: 'input',
                 value: '',
                 config: {
-                    label: 'Phone nubmer',
-                    name: 'hours_input',
+                    label: 'Phone number',
+                    name: 'phone_input',
                     type: 'text',
                     placeholder: 'Enter the phone number'
                 },
@@ -104,8 +104,8 @@ class UpdateSiteNfo extends Component {
                     setTimeout(() => {
                         this.setState({
                             formSuccess: false
-                        }, 2000)
-                    })
+                        })
+                    }, 2000)
                 })
             });
         } else {
@@ -131,7 +131,7 @@ class UpdateSiteNfo extends Component {
                 <form onSubmit={event => this.submitForm(event)}>
                     <h1>Site info</h1>
                     <FormField
-                        id={'adress'}
+                        id={'address'}
                         formdata={this.state.formData.address}
                         change={(element) => {
                             this.updateForm(element);
